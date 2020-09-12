@@ -26,14 +26,15 @@ public class PropostaController {
     }
 
     @GetMapping("/{id}")
-    public void proposta(@PathVariable Long id) {
+    public ResponseEntity<PropostaResponse> proposta(@PathVariable Long id) {
         Optional<Proposta> proposta = propostaRepository.findById(id);
 
         if(proposta.isPresent()) {
             PropostaResponse propostaResponse = new PropostaResponse(proposta.get());
+            return ResponseEntity.ok(propostaResponse);
         }
 
-
+        return null;
     }
 
 }

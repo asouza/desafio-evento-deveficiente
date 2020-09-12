@@ -86,4 +86,8 @@ public class Proposta {
     public UploadCPF getUploadCPF() {
         return uploadCPF;
     }
+
+    public boolean isCompleto() {
+        return false;
+    }
 }

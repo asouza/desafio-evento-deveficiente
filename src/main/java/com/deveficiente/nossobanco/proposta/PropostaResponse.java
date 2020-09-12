@@ -50,8 +50,8 @@ class EnderecoResponse {
 }
 
 class UploadCPFResponse {
-    private String frente;
-    private String verso;
+    public final String frente;
+    public final String verso;
 
     UploadCPFResponse(UploadCPF uploadCPF) {
         this.frente = uploadCPF.getFrente();
