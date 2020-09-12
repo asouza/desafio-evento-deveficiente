@@ -19,11 +19,13 @@ public class Endereco {
 	private @NotBlank String estado;
 	private @NotBlank String rua;
 
-
+	@Deprecated
+	public Endereco() {
+	}
 
 	public Endereco(@NotBlank String bairro, @NotBlank String cep,
-			@NotBlank String cidade, @NotBlank String complemento,
-			@NotBlank String estado, @NotBlank String rua) {
+					@NotBlank String cidade, @NotBlank String complemento,
+					@NotBlank String estado, @NotBlank String rua) {
 				this.bairro = bairro;
 				this.cep = cep;
 				this.cidade = cidade;

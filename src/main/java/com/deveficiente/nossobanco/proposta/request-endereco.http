@@ -1,0 +1,14 @@
+POST http://localhost:8080/api/proposta/1/parte-2
+Content-Type: application/json
+
+{
+  "cep": "test",
+  "rua": "teste",
+  "bairro": "bairro",
+  "complemento": "complemento",
+  "cidade": "cidade",
+  "estado": "estado"
+}
+
+
+###
