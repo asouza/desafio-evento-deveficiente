@@ -1,5 +1,6 @@
 package com.deveficiente.nossobanco.proposta;
 
+import com.deveficiente.nossobanco.compartilhado.BeforeDate;
 import com.deveficiente.nossobanco.compartilhado.UniqueValue;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -24,6 +25,7 @@ public class NovaPropostaRequest {
   private String email;
   @Past
   @NotNull
+  @BeforeDate
   private LocalDate dataNascimento;//TODO: 18 anos
 
   public String getNome() {
