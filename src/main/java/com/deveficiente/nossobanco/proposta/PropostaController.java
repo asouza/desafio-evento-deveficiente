@@ -12,9 +12,9 @@ import javax.validation.Valid;
 @RequestMapping("/api/proposta")
 public class PropostaController {
 
-    @PostMapping
-    public ResponseEntity<String> cadastrar(@RequestBody @Valid NovaPropostaRequest novaProposta) {
-        final Proposta proposta = novaProposta.toModel();
-        return "";
-    }
+  @PostMapping
+  public ResponseEntity<Long> cadastrar(@RequestBody @Valid NovaPropostaRequest novaProposta) {
+    final Proposta proposta = novaProposta.toModel();
+    return ResponseEntity.ok(proposta.getId());
+  }
 }
