@@ -23,7 +23,7 @@ public class PropostaController {
     final Proposta proposta = novaProposta.toModel();
     propostaRepository.save(proposta);
 
-    final URI uri = uriComponentsBuilder.path("/api/proposta" + proposta.getId()).build().toUri();
+    final URI uri = uriComponentsBuilder.path("/api/proposta/{id}/parte-2" ).buildAndExpand(proposta.getId()).toUri();
     return ResponseEntity.created(uri).build();
   }
   

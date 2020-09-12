@@ -19,6 +19,8 @@ public class Endereco {
 	private @NotBlank String estado;
 	private @NotBlank String rua;
 
+
+
 	public Endereco(@NotBlank String bairro, @NotBlank String cep,
 			@NotBlank String cidade, @NotBlank String complemento,
 			@NotBlank String estado, @NotBlank String rua) {
