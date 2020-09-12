@@ -1,20 +1,23 @@
 package com.deveficiente.nossobanco.compartilhado;
 
-import org.aspectj.lang.annotation.Before;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.lang.annotation.Annotation;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-public class BeforeDateValidator implements ConstraintValidator<BeforeDate, Object> {
+public class BeforeDateValidator implements ConstraintValidator<BeforeDate, LocalDate> {
+
+    private int years;
 
     @Override
-    public void initialize(Annotation constraintAnnotation) {
-
+    public void initialize(BeforeDate constraintAnnotation) {
+        years = constraintAnnotation.years();
     }
 
     @Override
-    public boolean isValid(Object value, ConstraintValidatorContext context) {
-        return false;
+    public boolean isValid(LocalDate date, ConstraintValidatorContext context) {
+
+        return ChronoUnit.YEARS.between(date, LocalDate.now()) >= years;
+
     }
 }
