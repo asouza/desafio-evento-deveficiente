@@ -19,8 +19,8 @@ public class UploadPropostaRequest {
     this.verso = verso;
   }
 
-  public Upload toModel(){
-    return new Upload(this.frente, this.verso);
+  public UploadCPF toModel(){
+    return new UploadCPF(this.frente, this.verso);
   }
 
 

@@ -21,12 +21,12 @@ public class UploadController {
   @PostMapping("/api/proposta/{id}/parte-3")
   public ResponseEntity parte3(@RequestBody @Valid UploadPropostaRequest request, @PathVariable("id") Long id,
                               UriComponentsBuilder uriComponentsBuilder) {
-    Upload upload = request.toModel();
+    UploadCPF uploadCPF = request.toModel();
     Optional<Proposta> optionalProposta = propostaRepository.findById(id);
     if (optionalProposta.isPresent()) {
       Proposta proposta = optionalProposta.get();
-//      proposta.adicionaEndereco(novoEndereco);
-//      propostaRepository.save(proposta);
+      proposta.adicionaCpfUpload(uploadCPF);
+      propostaRepository.save(proposta);
       URI uri = uriComponentsBuilder.path("/api/proposta/{id}/parte-4").buildAndExpand(id).toUri();
       return ResponseEntity.created(uri).build();
     }

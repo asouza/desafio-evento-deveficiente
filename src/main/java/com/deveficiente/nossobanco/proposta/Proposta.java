@@ -13,61 +13,69 @@ import java.time.LocalDate;
 
 @Entity
 public class Proposta {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-  private String nome;
+    private String nome;
 
-  private String sobrenome;
+    private String sobrenome;
 
-  private String cpf;
+    private String cpf;
 
-  private String email;
+    private String email;
 
-  private LocalDate dataNascimento;
-@OneToOne(cascade = CascadeType.MERGE)
-private Endereco endereco;
+    private LocalDate dataNascimento;
+    @OneToOne(cascade = CascadeType.MERGE)
+    private Endereco endereco;
 
-  public Long getId() {
-    return id;
-  }
+    @OneToOne(cascade = CascadeType.MERGE)
+    private UploadCPF uploadCPF;
 
-  public String getNome() {
-    return nome;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public String getSobrenome() {
-    return sobrenome;
-  }
+    public String getNome() {
+        return nome;
+    }
 
-  public String getCpf() {
-    return cpf;
-  }
+    public String getSobrenome() {
+        return sobrenome;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public String getCpf() {
+        return cpf;
+    }
 
-  public LocalDate getDataNascimento() {
-    return dataNascimento;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public Proposta() {
-  }
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public Proposta() {
+    }
 
 
-  public Proposta(String nome, String sobrenome, String cpf, String email, LocalDate dataNascimento) {
+    public Proposta(String nome, String sobrenome, String cpf, String email, LocalDate dataNascimento) {
 
-    this.nome = nome;
-    this.sobrenome = sobrenome;
-    this.cpf = cpf;
-    this.email = email;
-    this.dataNascimento = dataNascimento;
-  }
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+    }
 
-public void adicionaEndereco(Endereco novoEndereco) {
-	Assert.isNull(this.endereco, "O endereço tem que ser nulo para ser um novo");
-	this.endereco = novoEndereco;
-}
+    public void adicionaEndereco(Endereco novoEndereco) {
+        Assert.isNull(this.endereco, "O endereço tem que ser nulo para ser um novo");
+        this.endereco = novoEndereco;
+    }
+
+    public void adicionaCpfUpload(UploadCPF uploadCPF) {
+        Assert.isNull(this.uploadCPF, "O upload tem que ser nulo para ser um novo");
+        this.uploadCPF = uploadCPF;
+    }
 }
