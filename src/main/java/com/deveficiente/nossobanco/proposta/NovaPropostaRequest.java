@@ -1,5 +1,6 @@
 package com.deveficiente.nossobanco.proposta;
 
+import com.deveficiente.nossobanco.compartilhado.UniqueValue;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
@@ -15,10 +16,12 @@ public class NovaPropostaRequest {
   private String sobrenome;
   @CPF
   @NotNull
-  private String cpf; //TODO unique
+  @UniqueValue(domainClass = Proposta.class, fieldName = "cpf")
+  private String cpf;
   @NotBlank
   @Email
-  private String email;//TODO: unique
+  @UniqueValue(domainClass = Proposta.class, fieldName = "email")
+  private String email;
   @Past
   @NotNull
   private LocalDate dataNascimento;//TODO: 18 anos
