@@ -26,4 +26,6 @@ public class PropostaController {
     final URI uri = uriComponentsBuilder.path("/api/proposta" + proposta.getId()).build().toUri();
     return ResponseEntity.created(uri).build();
   }
+  
+  
 }
