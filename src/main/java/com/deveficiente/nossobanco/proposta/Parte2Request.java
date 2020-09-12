@@ -24,4 +24,8 @@ public class Parte2Request {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
+	
+	public Endereco toModel() {
+		return new Endereco(this.bairro,this.cep,this.cidade,this.complemento,this.estado,this.rua);
+	}
 }
