@@ -1,0 +1,12 @@
+POST http://localhost:8080/api/proposta
+Content-Type: application/json
+
+{
+  "email": "alberto@deveficiente.com",
+  "nome": "Alberto",
+  "sobrenome": "Souza",
+  "dataNascimento": "2000-12-09",
+  "cpf": "308.830.180-20"
+}
+
+###
