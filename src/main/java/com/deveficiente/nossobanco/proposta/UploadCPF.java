@@ -26,4 +26,16 @@ public class UploadCPF {
         this.frente = frente;
         this.verso = verso;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFrente() {
+        return frente;
+    }
+
+    public String getVerso() {
+        return verso;
+    }
 }

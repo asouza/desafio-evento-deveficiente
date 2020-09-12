@@ -78,4 +78,12 @@ public class Proposta {
         Assert.isNull(this.uploadCPF, "O upload tem que ser nulo para ser um novo");
         this.uploadCPF = uploadCPF;
     }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public UploadCPF getUploadCPF() {
+        return uploadCPF;
+    }
 }

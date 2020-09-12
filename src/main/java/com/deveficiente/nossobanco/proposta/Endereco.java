@@ -35,4 +35,31 @@ public class Endereco {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public String getRua() {
+		return rua;
+	}
 }
