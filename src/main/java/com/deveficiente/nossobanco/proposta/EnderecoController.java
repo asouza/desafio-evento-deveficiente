@@ -16,7 +16,7 @@ public class EnderecoController {
 	private PropostaRepository propostaRepository;
 
 	@PostMapping("/api/proposta/{id}/parte-2")
-	public String parte(@RequestBody @Valid Parte2Request request, @PathVariable("id") Long id) {
+	public String parte(@RequestBody @Valid EnderecoPropostaRequest request, @PathVariable("id") Long id) {
 		Endereco novoEndereco = request.toModel();
 		Proposta proposta = propostaRepository.getOne(id);
 		proposta.adicionaEndereco(novoEndereco);

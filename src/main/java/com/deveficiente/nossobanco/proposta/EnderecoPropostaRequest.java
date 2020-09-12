@@ -2,7 +2,7 @@ package com.deveficiente.nossobanco.proposta;
 
 import javax.validation.constraints.NotBlank;
 
-public class Parte2Request {
+public class EnderecoPropostaRequest {
 	@NotBlank
 	private String cep;
 	@NotBlank
@@ -15,8 +15,9 @@ public class Parte2Request {
 	private String cidade;
 	@NotBlank
 	private String estado;
-	public Parte2Request(@NotBlank String cep, @NotBlank String rua, @NotBlank String bairro,
-			@NotBlank String complemento, @NotBlank String cidade, @NotBlank String estado) {
+
+	public EnderecoPropostaRequest(@NotBlank String cep, @NotBlank String rua, @NotBlank String bairro,
+								   @NotBlank String complemento, @NotBlank String cidade, @NotBlank String estado) {
 		this.cep = cep;
 		this.rua = rua;
 		this.bairro = bairro;
