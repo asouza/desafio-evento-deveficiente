@@ -16,6 +16,9 @@ public class BeforeDateValidator implements ConstraintValidator<BeforeDate, Loca
 
     @Override
     public boolean isValid(LocalDate date, ConstraintValidatorContext context) {
+        if (date == null) {
+            return false;
+        }
 
         return ChronoUnit.YEARS.between(date, LocalDate.now()) >= years;
 

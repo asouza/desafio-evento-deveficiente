@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import javax.validation.Valid;
 
 @RestController
@@ -17,9 +19,11 @@ public class PropostaController {
   private PropostaRepository propostaRepository;
 
   @PostMapping
-  public ResponseEntity<Long> cadastrar(@RequestBody @Valid NovaPropostaRequest novaProposta) {
+  public ResponseEntity cadastrar(@RequestBody @Valid NovaPropostaRequest novaProposta, UriComponentsBuilder uriComponentsBuilder) {
     final Proposta proposta = novaProposta.toModel();
     propostaRepository.save(proposta);
-    return ResponseEntity.ok(proposta.getId());
+
+    final URI uri = uriComponentsBuilder.path("/api/proposta" + proposta.getId()).build().toUri();
+    return ResponseEntity.created(uri).build();
   }
 }
