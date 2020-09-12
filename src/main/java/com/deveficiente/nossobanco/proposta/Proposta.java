@@ -1,9 +1,14 @@
 package com.deveficiente.nossobanco.proposta;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.springframework.util.Assert;
+
 import java.time.LocalDate;
 
 @Entity
@@ -21,6 +26,8 @@ public class Proposta {
   private String email;
 
   private LocalDate dataNascimento;
+@OneToOne(cascade = CascadeType.MERGE)
+private Endereco endereco;
 
   public Long getId() {
     return id;
@@ -58,4 +65,9 @@ public class Proposta {
     this.email = email;
     this.dataNascimento = dataNascimento;
   }
+
+public void adicionaEndereco(Endereco novoEndereco) {
+	Assert.isNull(this.endereco, "O endereço tem que ser nulo para ser um novo");
+	this.endereco = novoEndereco;
+}
 }
