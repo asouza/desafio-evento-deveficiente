@@ -75,6 +75,7 @@ public class Proposta {
     }
 
     public void adicionaCpfUpload(UploadCPF uploadCPF) {
+    	Assert.state(this.endereco != null , "O endereço não pode ser nulo");
         Assert.isNull(this.uploadCPF, "O upload tem que ser nulo para ser um novo");
         this.uploadCPF = uploadCPF;
     }
@@ -88,6 +89,6 @@ public class Proposta {
     }
 
     public boolean isCompleto() {
-        return false;
+        return this.endereco != null && this.uploadCPF != null;
     }
 }
