@@ -12,21 +12,22 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.Optional;
 
-@RestController()
-public class EnderecoController {
+@RestController
+public class UploadController {
+
   @Autowired
   private PropostaRepository propostaRepository;
 
-  @PostMapping("/api/proposta/{id}/parte-2")
-  public ResponseEntity parte(@RequestBody @Valid EnderecoPropostaRequest request, @PathVariable("id") Long id,
+  @PostMapping("/api/proposta/{id}/parte-3")
+  public ResponseEntity parte3(@RequestBody @Valid UploadPropostaRequest request, @PathVariable("id") Long id,
                               UriComponentsBuilder uriComponentsBuilder) {
-    Endereco novoEndereco = request.toModel();
+    Upload upload = request.toModel();
     Optional<Proposta> optionalProposta = propostaRepository.findById(id);
     if (optionalProposta.isPresent()) {
       Proposta proposta = optionalProposta.get();
-      proposta.adicionaEndereco(novoEndereco);
-      propostaRepository.save(proposta);
-      URI uri = uriComponentsBuilder.path("/api/proposta/{id}/parte-3").buildAndExpand(id).toUri();
+//      proposta.adicionaEndereco(novoEndereco);
+//      propostaRepository.save(proposta);
+      URI uri = uriComponentsBuilder.path("/api/proposta/{id}/parte-4").buildAndExpand(id).toUri();
       return ResponseEntity.created(uri).build();
     }
     return ResponseEntity.notFound().build();

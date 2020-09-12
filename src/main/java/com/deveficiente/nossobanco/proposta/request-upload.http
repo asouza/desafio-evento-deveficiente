@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/proposta/1/parte-3
+Content-Type: application/json
+
+{
+  "frente": "http://uol.com.br",
+	"verso":"http://uol.com.br"
+}
+
+
+###
