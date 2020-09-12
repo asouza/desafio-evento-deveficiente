@@ -14,6 +14,7 @@ public class PropostaController {
 
     @PostMapping
     public ResponseEntity<String> cadastrar(@RequestBody @Valid NovaPropostaRequest novaProposta) {
-
+        final Proposta proposta = novaProposta.toModel();
+        return "";
     }
 }
